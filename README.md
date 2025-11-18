@@ -22,7 +22,7 @@
 ##   مستندات
 -[ تحلیل نیازمندی ها ](docs/first_principles_analysis.md)
 -[موارد کاربرد وسناریوها](docs/README.md)
-
+-[طراحی سیستم](https://www.figma.com/design/nXuILDVsukqNrgnqoXWhQl/Untitled?node-id=0-1&t=S7oRFqB4tu79mRpY-1)
 
 
 ##    برنامه زمان بندی اولیه
