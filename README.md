@@ -49,6 +49,9 @@
 -[موارد کاربرد وسناریوها](docs/README.md)
 
 
+-[طراحی سیستم](https://www.mermaidchart.com/app/projects/54601f72-1cc0-4013-8064-c5c665071c8a/diagrams/67b5d5e6-5a78-4a3a-969e-7489b7c6ca66/share/invite/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudElEIjoiNjdiNWQ1ZTYtNWE3OC00YTNhLTk2OWUtNzQ4OWI3YzZjYTY2IiwiYWNjZXNzIjoiRWRpdCIsImlhdCI6MTc2MzU2MjkzM30.K5Ba32ZzufEu2yVTgcL941pKDJ8uxPmkCQHSxQlmq70)
+
+
 
 
 ##    برنامه زمان بندی اولیه
