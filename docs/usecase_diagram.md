@@ -10,6 +10,10 @@ config:
   theme: redux
   layout: elk
 ---
+
+
+
+
 flowchart TB
     A(["ورود ب سیستم"]) --> B["نام کاربری"] & n27["خروج از سیستم"]
     B --> D["رمز عبور"]
