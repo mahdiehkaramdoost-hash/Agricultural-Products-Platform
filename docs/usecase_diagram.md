@@ -2,9 +2,13 @@
 -[طراحی سیستم](https://www.mermaidchart.com/app/projects/54601f72-1cc0-4013-8064-c5c665071c8a/diagrams/67b5d5e6-5a78-4a3a-969e-7489b7c6ca66/share/invite/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudElEIjoiNjdiNWQ1ZTYtNWE3OC00YTNhLTk2OWUtNzQ4OWI3YzZjYTY2IiwiYWNjZXNzIjoiRWRpdCIsImlhdCI6MTc2MzU2MjkzM30.K5Ba32ZzufEu2yVTgcL941pKDJ8uxPmkCQHSxQlmq70)
 
 
+
+
+
 ---
 config:
   theme: redux
+  layout: elk
 ---
 flowchart TB
     A(["ورود ب سیستم"]) --> B["نام کاربری"] & n27["خروج از سیستم"]
@@ -28,6 +32,9 @@ flowchart TB
     n23["مدیریت پروفایل"] --> n24["تغییر پروفایل"] & n25["ویرایش نام"] & n27
     n24 --> n26["ثبت"]
     n25 --> n26
+    n29(("خریدار")) --> n19 & n8 & A & n13
+    n30(("فروشنده")) --> n29 & n1 & n23 & n13
+    n28(("مدیر")) --> n30
     B@{ shape: rounded}
     n27@{ shape: rounded}
     D@{ shape: rounded}
@@ -55,5 +62,43 @@ flowchart TB
     n24@{ shape: rounded}
     n25@{ shape: rounded}
     n26@{ shape: rounded}
+     A:::Sky
+     B:::Sky
+     n27:::Rose
+     D:::Sky
+     n1:::Aqua
+     n2:::Aqua
+     n5:::Aqua
+     n4:::Aqua
+     n6:::Sky
+     n7:::Sky
+     n8:::Sky
+     n9:::Sky
+     n10:::Sky
+     n11:::Sky
+     n12:::Sky
+     n13:::Aqua
+     n14:::Aqua
+     n15:::Aqua
+     n17:::Aqua
+     n18:::Aqua
+     n16:::Aqua
+     n19:::Sky
+     n20:::Sky
+     n21:::Sky
+     n22:::Sky
+     n23:::Aqua
+     n24:::Aqua
+     n25:::Aqua
+     n26:::Aqua
+     n29:::Sky
+     n30:::Aqua
+     n28:::Pine
+    classDef Peach stroke-width:1px, stroke-dasharray:none, stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
+    classDef Ash stroke-width:1px, stroke-dasharray:none, stroke:#999999, fill:#EEEEEE, color:#000000
+    classDef Rose stroke-width:1px, stroke-dasharray:none, stroke:#FF5978, fill:#FFDFE5, color:#8E2236
+    classDef Pine stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
+    classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
+    classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
     style A color:#000000
-    style n27 stroke:#FFCDD2
+    style n27 stroke:#D50000
