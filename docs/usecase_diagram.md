@@ -13,7 +13,7 @@ config:
 
 
 
-```mermiad
+``` mermaid
 
 
 flowchart TB
