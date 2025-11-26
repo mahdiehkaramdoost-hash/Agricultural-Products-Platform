@@ -13,6 +13,8 @@ config:
 
 
 
+```mermiad
+
 
 flowchart TB
     A(["ورود ب سیستم"]) --> B["نام کاربری"] & n27["خروج از سیستم"]
@@ -106,3 +108,7 @@ flowchart TB
     classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
     style A color:#000000
     style n27 stroke:#D50000
+
+
+    
+    ```
