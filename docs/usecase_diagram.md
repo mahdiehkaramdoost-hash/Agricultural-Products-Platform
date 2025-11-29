@@ -18,7 +18,7 @@ config:
   theme: redux
   layout: elk
 ---
-flowchart TB
+flowchart LR
     A(["ورود ب سیستم"]) --> B["نام کاربری"]
     B --> D["رمز عبور"]
     n1["ثبت نام کاربر"] --> n2["اطلاعات وارد کنید"] & n5["ثبت کردن"]
@@ -41,8 +41,7 @@ flowchart TB
     n25 --> n26
     n29(("خریدار")) --> n19 & n8 & A & n13
     n30(("فروشنده")) --> n1 & n23 & n13
-    n28(("مدیر")) --> n30
-    n28 --> n29
+    n28(("مدیر")) --> n30 & n29
 
     B@{ shape: rounded}
     D@{ shape: rounded}
@@ -98,13 +97,15 @@ flowchart TB
      n30:::Aqua
      n28:::Pine
     classDef Peach stroke-width:1px, stroke-dasharray:none, stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
-    classDef Ash stroke-width:1px, stroke-dasharray:none, stroke:#999999, fill:#EEEEEE, color:#000000
     classDef Rose stroke-width:1px, stroke-dasharray:none, stroke:#FF5978, fill:#FFDFE5, color:#8E2236
-    classDef Pine stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
     classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
     classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
+    classDef Ash stroke-width:1px, stroke-dasharray:none, stroke:#999999, fill:#EEEEEE, color:#000000
+    classDef Pine stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
     style A color:#000000
-
+    style n28 stroke:#00C853
     
+    
+
     
     ```
