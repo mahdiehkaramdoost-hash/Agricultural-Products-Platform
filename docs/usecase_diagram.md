@@ -13,9 +13,10 @@
 
 
 
-fig:
+---
+config:
   theme: redux
-  layout: dagre
+  layout: elk
 ---
 flowchart TB
     A(["ورود ب سیستم"]) --> B["نام کاربری"]
@@ -102,7 +103,7 @@ flowchart TB
     classDef Pine stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
     classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
     classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
-    style A color:#00000
+    style A color:#000000
 
     
     
