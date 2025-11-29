@@ -13,10 +13,9 @@
 
 
 
----
-config:
+fig:
   theme: redux
-  layout: elk
+  layout: dagre
 ---
 flowchart TB
     A(["ورود ب سیستم"]) --> B["نام کاربری"]
@@ -42,6 +41,7 @@ flowchart TB
     n29(("خریدار")) --> n19 & n8 & A & n13
     n30(("فروشنده")) --> n1 & n23 & n13
     n28(("مدیر")) --> n30
+    n28 --> n29
 
     B@{ shape: rounded}
     D@{ shape: rounded}
@@ -102,7 +102,7 @@ flowchart TB
     classDef Pine stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
     classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
     classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
-    style A color:#000000
+    style A color:#00000
 
     
     
