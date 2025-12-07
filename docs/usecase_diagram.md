@@ -16,18 +16,18 @@
 ---
 config:
   theme: redux
-  layout: elk
+  layout: dagre
 ---
-flowchart LR
+flowchart TB
     A(["ورود ب سیستم"]) --> B["نام کاربری"]
     B --> D["رمز عبور"]
-    n1["ثبت نام کاربر"] --> n2["اطلاعات وارد کنید"] & n5["ثبت کردن"]
-    n2 --> n4(["حساب کاربری جدید"]) & n5
+    n1["ایجاد حساب کاربری"] --> n2["ثبت ومدیریت محصولات"] & n5["ثبت کردن"]
+    n2 --> n4(["دیدن سفارشات دریافتی"]) & n5
     n4 --> n5
     D --> n6["ثبت کردن"] & n7["فراموشی رمز"]
     n7 --> n6
     n8["مشاهده محصولات"] --> n9["جست وجو محصولات"]
-    n9 --> n10["دسته بندی محصولات"] & n11["قیمت محصولات"]
+    n9 --> n10["دسته بندی محصولات"] & n11["ثبت سفارش و پرداخت انلاین"]
     n10 --> n11
     n11 --> n12["ثبت کردن"]
     n13["ایجاد تسک"] --> n14["درخواست فروش"] & n15["درخواست خرید"]
@@ -40,8 +40,8 @@ flowchart LR
     n24 --> n26["ثبت کردن"]
     n25 --> n26
     n29(("خریدار")) --> n19 & n8 & A & n13
-    n30(("فروشنده")) --> n1 & n23 & n13
-    n28(("مدیر")) --> n30 & n29
+    n30(("کشاورز")) --> n1 & n23 & n13
+    n28(("مدیر سیستم")) --> n30 & n29 & n31["تأیید حساب‌های جدید کشاورزان"] & n32["نظارت بر تراکنش‌ها و گزارش‌ها."]
 
     B@{ shape: rounded}
     D@{ shape: rounded}
@@ -67,6 +67,8 @@ flowchart LR
     n24@{ shape: rounded}
     n25@{ shape: rounded}
     n26@{ shape: rounded}
+    n31@{ shape: rect}
+    n32@{ shape: rect}
      A:::Sky
      B:::Sky
      D:::Sky
@@ -96,15 +98,16 @@ flowchart LR
      n29:::Sky
      n30:::Aqua
      n28:::Pine
-    classDef Peach stroke-width:1px, stroke-dasharray:none, stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
+     n31:::Peach
+     n32:::Peach
     classDef Rose stroke-width:1px, stroke-dasharray:none, stroke:#FF5978, fill:#FFDFE5, color:#8E2236
     classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
     classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
     classDef Ash stroke-width:1px, stroke-dasharray:none, stroke:#999999, fill:#EEEEEE, color:#000000
     classDef Pine stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
+    classDef Peach stroke-width:1px, stroke-dasharray:none, stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
     style A color:#000000
     style n28 stroke:#00C853
-    
     
 
 
