@@ -16,7 +16,7 @@
 ---
 config:
   theme: redux
-  layout: dagre
+  layout: fixed
 ---
 flowchart TB
     A(["ورود ب سیستم"]) --> B["نام کاربری"]
@@ -108,7 +108,5 @@ flowchart TB
     classDef Peach stroke-width:1px, stroke-dasharray:none, stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
     style A color:#000000
     style n28 stroke:#00C853
-    
-
 
     ```
