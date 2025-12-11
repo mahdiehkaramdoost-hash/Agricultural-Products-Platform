@@ -8,36 +8,35 @@
 
 
 sequenceDiagram
+
     participant Admin as مدیر سیستم
     participant Farmer as کشاورز
     participant Customer as خریدار
 
-    %% فرایندهای کشاورز
+    %% فرآیندهای کشاورز
     Farmer->>Admin: درخواست عضویت/ورود به سیستم
-    Admin-->>Farmer: تایید/رد حساب کاربری
-    Farmer->>Admin: ثبت اطلاعات محصول برای فروش
-    Admin-->>Farmer: تایید/رد محصول (بررسی و مدیریت)
-    Farmer->>Admin: دسته‌بندی و مدیریت محصولات
-    Farmer->>Admin: مشاهده سفارشات ثبت‌شده
+    Admin-->>Farmer: تایید حساب کاربری
+    Farmer->>Admin: ثبت محصول جدید (درخواست فروش)
+    Admin-->>Farmer: تایید محصول و انتشار در لیست
+    Farmer->>Admin: مدیریت و دسته‌بندی محصولات خود
+    Farmer->>Admin: مشاهده سفارش‌های دریافتی
 
-    %% فرایندهای خریدار
+    %% فرآیندهای خریدار
     Customer->>Admin: ثبت‌نام/ورود به سیستم
     Admin-->>Customer: تایید ورود
-    Customer->>Admin: جستجو و مشاهده محصولات تایید شده
-    Admin-->>Customer: نمایش لیست محصولات کشاورزی
-    Customer->>Farmer: ارسال درخواست خرید محصول
+    Customer->>Admin: جستجوی محصولات موجود
+    Admin-->>Customer: نمایش لیست محصولات مورد تایید
+    Customer->>Farmer: ثبت سفارش محصول
     Farmer-->>Customer: تایید دریافت سفارش
-    Customer->>Admin: پرداخت آنلاین سفارش
-    Admin-->>Customer: تایید پرداخت و ثبت سفارش نهایی
+    Customer->>Admin: پرداخت آنلاین هزینه سفارش
+    Admin-->>Customer: تایید پرداخت و نهایی‌سازی سفارش
 
-    %% نظارت و گزارش‌دهی مدیر سیستم
-    Admin->>Admin: نظارت بر تراکنش‌ها و گزارشات
-    Customer->>Farmer: ثبت نظر و امتیازدهی بعد از خرید
-    Farmer-->>Customer: مشاهده امتیاز و نظر خریدار
+    %% امتیاز و نظر
+    Customer->>Farmer: ثبت امتیاز و نظر درباره محصول/فرایند خرید
+    Farmer-->>Customer: مشاهده بازخورد مشتری
 
-    %% سفارش و ارسال
-    Admin-->>Farmer: اطلاع‌رسانی سفارش جدید و تایید پرداخت
-    Farmer-->>Admin: تایید آماده‌سازی و ارسال محصول
-    Admin-->>Customer: اطلاع‌رسانی وضعیت سفارش و ارسال
-    
+    %% عملکرد مدیر سیستم
+    Admin->>Admin: نظارت بر تراکنش‌ها و کلیه سفارشات
+    Admin->>Admin: تهیه و مشاهده گزارشات سیستمی
+
     ```
