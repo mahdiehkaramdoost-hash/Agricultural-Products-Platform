@@ -1,13 +1,8 @@
 
 
+``` mermaid
 
-
-
-``` 
-
-
-
-``` sequenceDiagram
+  sequenceDiagram
 
     participant Admin as مدیر سیستم
     participant Farmer as کشاورز
@@ -39,4 +34,8 @@
     Admin->>Admin: نظارت بر تراکنش‌ها و کلیه سفارشات
     Admin->>Admin: تهیه و مشاهده گزارشات سیستمی
 
+    
+
+
+    ```
     ```
