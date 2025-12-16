@@ -5,4 +5,4 @@
 |-------|--------------|-----------|-------------|
 | 1 | تحلیل بر اساس تفکر از اصول اولیه | بررسی بنیادین مسئله فروش و توزیع محصولات کشاورزی با تمرکز بر سه اصل: شفافیت، دسترسی مستقیم و اعتماد. | [first_principles_analysis.md](./first_principles_analysis.md) |
 | 2 | نمودار موارد کاربرد (Use Case Diagram) | نمایش تعامل کشاورز، خریدار و مدیر سامانه با سیستم (ورود، ثبت محصول، ثبت سفارش و پرداخت). | [usecase_diagram.md](./usecase_diagram.md) |
-| 3 | Use story.md |معیارهای پذیرش | [usestory.md] (./use story.md) |
+| 3 | User story.md |معیارهای پذیرش | [userstory.md] (./user story.md) |
