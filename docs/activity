@@ -1,0 +1,71 @@
+import matplotlib.pyplot as plt
+import arabic_reshaper
+from bidi.algorithm import get_display
+
+# 1. Setup for Persian Text
+# Note: This setup is crucial for displaying Persian text correctly in matplotlib
+def draw_persian_text(ax, text, position, color='black', fontsize=10):
+    reshaped_text = arabic_reshaper.reshape(text)
+    bidi_text = get_display(reshaped_text)
+    ax.text(position[0], position[1], bidi_text, color=color, fontsize=fontsize, ha='center', va='center')
+
+# --- Diagram Definition (Simplified Flowchart/Activity Style) ---
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.set_title('نمودار فعالیت پلتفرم کشاورزی (فارسی)', fontsize=16, pad=20)
+
+# Define Swimlanes (Roles)
+roles = {
+    "کشاورز": 0,
+    "مدیر سیستم": 1,
+    "خریدار": 2
+}
+num_lanes = len(roles)
+lane_height = 1.0 / num_lanes
+
+# Helper function for drawing text in the correct lane position
+def get_y_pos(lane_index, factor=0.5):
+    # Center of the lane area
+    return 1 - (lane_index * lane_height) - (lane_height * factor)
+
+# --- Activities and Flow ---
+
+# 1. کشاورز (Farmer)
+draw_persian_text(ax, "ثبت‌نام و احراز هویت", (0.1, get_y_pos(roles["کشاورز"])), fontsize=10)
+draw_persian_text(ax, "ثبت/ویرایش محصولات", (0.3, get_y_pos(roles["کشاورز"])), fontsize=10)
+draw_persian_text(ax, "مشاهده وضعیت تأیید", (0.5, get_y_pos(roles["کشاورز"])), fontsize=10)
+
+# Arrow from Farmer to Admin (Verification)
+ax.annotate('', xy=(0.25, get_y_pos(roles["کشاورز"], 0.1)), xytext=(0.25, get_y_pos(roles["مدیر سیستم"], 0.9)),
+            arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.1", color="gray"))
+
+# 2. مدیر سیستم (Admin)
+draw_persian_text(ax, "تأیید اطلاعات کشاورز", (0.6, get_y_pos(roles["مدیر سیستم"])), fontsize=10)
+draw_persian_text(ax, "تأیید محصولات", (0.8, get_y_pos(roles["مدیر سیستم"])), fontsize=10)
+
+# Arrow from Admin to Buyer (Product Visibility)
+ax.annotate('', xy=(0.75, get_y_pos(roles["مدیر سیستم"], 0.1)), xytext=(0.75, get_y_pos(roles["خریدار"], 0.9)),
+            arrowprops=dict(arrowstyle="->", connectionstyle="arc3,rad=0.1", color="gray"))
+
+# 3. خریدار (Buyer)
+draw_persian_text(ax, "مرور و جستجوی محصولات", (0.3, get_y_pos(roles["خریدار"])), fontsize=10)
+draw_persian_text(ax, "افزودن به سبد خرید", (0.5, get_y_pos(roles["خریدار"])), fontsize=10)
+draw_persian_text(ax, "ثبت نهایی سفارش و پرداخت", (0.7, get_y_pos(roles["خریدار"])), fontsize=10)
+
+# --- Aesthetics (Simplifying Swimlanes Appearance) ---
+ax.set_xlim(0, 1)
+ax.set_ylim(0, 1)
+ax.axis('off') # Hide axes for a cleaner diagram look
+
+# Draw horizontal lines for Swimlanes
+for i in range(num_lanes + 1):
+    y = 1 - (i * lane_height)
+    ax.axhline(y, color='black', linewidth=1)
+
+# Add labels for lanes on the left side
+for role, index in roles.items():
+    draw_persian_text(ax, role, (-0.05, get_y_pos(index, 0.5)), fontsize=11, color='darkblue')
+
+# Save the figure
+file_path = "/mnt/data/activity_diagram_fa.png"
+plt.savefig(file_path, bbox_inches='tight', dpi=150)
+print(f"Diagram saved to {file_path}")
