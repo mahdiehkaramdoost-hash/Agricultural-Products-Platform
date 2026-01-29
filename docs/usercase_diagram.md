@@ -6,100 +6,78 @@
 
 
 
----
-config:
-  theme: redux
-  layout: fixed
----
 flowchart TB
-    A(["ورود ب سیستم"]) --> B["نام کاربری"]
-    B --> D["رمز عبور"]
-    n1["ایجاد حساب کاربری"] --> n2["ثبت ومدیریت محصولات"] & n5["ثبت کردن"]
-    n2 --> n4(["دیدن سفارشات دریافتی"]) & n5
-    n4 --> n5
-    D --> n6["ثبت کردن"] & n7["فراموشی رمز"]
-    n7 --> n6
-    n8["مشاهده محصولات"] --> n9["جست وجو محصولات"]
-    n9 --> n10["دسته بندی محصولات"] & n11["ثبت سفارش و پرداخت انلاین"]
-    n10 --> n11
-    n11 --> n12["ثبت کردن"]
-    n13["ایجاد تسک"] --> n14["درخواست فروش"] & n15["درخواست خرید"]
-    n15 --> n16["ثبت کردن"]
-    n14 --> n16
-    n19["نظرات و امتیاز دهی"] --> n20["ایجاد نظر"] & n21["امتیاز دهی"]
-    n21 --> n22["ثبت کردن"]
-    n20 --> n22
-    n23["مدیریت پروفایل"] --> n24["تغییر پروفایل"] & n25["ویرایش نام"]
-    n24 --> n26["ثبت کردن"]
-    n25 --> n26
-    n29(("خریدار")) --> n19 & n8 & A & n13
-    n30(("کشاورز")) --> n1 & n23 & n13
-    n28(("مدیر سیستم")) --> n30 & n29 & n31["تأیید حساب‌های جدید کشاورزان"] & n32["نظارت بر تراکنش‌ها و گزارش‌ها."]
+    %% نقش‌ها با رنگ مجزا
+    Farmer@{ icon: "fa:tractor", shape: "circle", label: "کشاورز" }
+    Customer@{ icon: "fa:user", shape: "circle", label: "خریدار" }
+    Admin@{ icon: "fa:user-shield", shape: "circle", label: "مدیر سیستم" }
 
-    B@{ shape: rounded}
-    D@{ shape: rounded}
-    n1@{ shape: rounded}
-    n2@{ shape: rounded}
-    n5@{ shape: rounded}
-    n6@{ shape: rounded}
-    n7@{ shape: rounded}
-    n8@{ shape: rounded}
-    n9@{ shape: rounded}
-    n10@{ shape: rounded}
-    n11@{ shape: rounded}
-    n12@{ shape: rounded}
-    n13@{ shape: rounded}
-    n14@{ shape: rounded}
-    n15@{ shape: rounded}
-    n16@{ shape: rounded}
-    n19@{ shape: rounded}
-    n20@{ shape: rounded}
-    n21@{ shape: rounded}
-    n22@{ shape: rounded}
-    n23@{ shape: rounded}
-    n24@{ shape: rounded}
-    n25@{ shape: rounded}
-    n26@{ shape: rounded}
-    n31@{ shape: rect}
-    n32@{ shape: rect}
-     A:::Sky
-     B:::Sky
-     D:::Sky
-     n1:::Aqua
-     n2:::Aqua
-     n5:::Aqua
-     n4:::Aqua
-     n6:::Sky
-     n7:::Sky
-     n8:::Sky
-     n9:::Sky
-     n10:::Sky
-     n11:::Sky
-     n12:::Sky
-     n13:::Aqua
-     n14:::Aqua
-     n15:::Aqua
-     n16:::Aqua
-     n19:::Sky
-     n20:::Sky
-     n21:::Sky
-     n22:::Sky
-     n23:::Aqua
-     n24:::Aqua
-     n25:::Aqua
-     n26:::Aqua
-     n29:::Sky
-     n30:::Aqua
-     n28:::Pine
-     n31:::Peach
-     n32:::Peach
-    classDef Rose stroke-width:1px, stroke-dasharray:none, stroke:#FF5978, fill:#FFDFE5, color:#8E2236
-    classDef Aqua stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
-    classDef Sky stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
-    classDef Ash stroke-width:1px, stroke-dasharray:none, stroke:#999999, fill:#EEEEEE, color:#000000
-    classDef Pine stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
-    classDef Peach stroke-width:1px, stroke-dasharray:none, stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
-    style A color:#000000
-    style n28 stroke:#00C853
+    %% یوزکیس‌های کشاورز
+    subgraph بخش_کشاورز[" "]
+    F1[مدیریت محصولات]
+    F2[ثبت فروش محصول]
+    F3[مشاهده سفارشات]
+    end
+
+    %% یوزکیس‌های خریدار
+    subgraph بخش_خریدار[" "]
+    C1[جستجوی محصول]
+    C2[ثبت سفارش]
+    C3[پرداخت آنلاین]
+    C4[ثبت امتیاز و نظر]
+    end
+
+    %% یوزکیس‌های مدیر
+    subgraph بخش_مدیر[" "]
+    A1[نظارت بر تراکنش‌ها]
+    A2[بررسی گزارشات]
+    A3[مدیریت کاربران]
+    end
+
+    %% یوزکیس مشترک
+    Register[ورود/ثبت‌نام]
+
+    %% ارتباط نقش‌ها به یوزکیس‌ها
+    Farmer --> Register
+    Farmer --> F1
+    Farmer --> F2
+    Farmer --> F3
+
+    Customer --> Register
+    Customer --> C1
+    Customer --> C2
+    Customer --> C4
+
+    Admin --> A1
+    Admin --> A2
+    Admin --> A3
+
+    %% روابط include و extend
+    C2 -->|include| C3
+    C2 -.->|extend| C4
+
+    %% موقعیت و چینش
+    Register -.-> F1
+    Register -.-> C1
+
+    %% رنگ‌بندی کلاس‌ها
+    classDef farmer fill:#eafbea,stroke:#27ae60,stroke-width:2px,color:#145a32;
+    classDef customer fill:#e8f6ff,stroke:#2980b9,stroke-width:2px,color:#154360;
+    classDef admin fill:#fbeee6,stroke:#e37e18,stroke-width:2px,color:#633700;
+    classDef usecaseFarmer fill:#dcffe4,stroke:#16a34a;
+    classDef usecaseCustomer fill:#e8fafe,stroke:#249aca;
+    classDef usecaseAdmin fill:#fff0d6,stroke:#e67e22;
+    classDef joincase fill:#f5f5f5,stroke:#434343;
+
+    class Farmer farmer;
+    class F1,F2,F3 usecaseFarmer;
+
+    class Customer customer;
+    class C1,C2,C3,C4 usecaseCustomer;
+
+    class Admin admin;
+    class A1,A2,A3 usecaseAdmin;
+
+    class Register joincase;
 
     ```
